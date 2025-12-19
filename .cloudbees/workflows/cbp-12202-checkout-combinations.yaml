@@ -17,3 +17,9 @@ jobs:
 
       - id: checkout-only-id
         uses: cloudbees-io/checkout@v1
+
+      - name: Hello World (sh)
+        uses: docker://alpine:3.21
+        shell: sh
+        run: |
+          echo "Hello World"
