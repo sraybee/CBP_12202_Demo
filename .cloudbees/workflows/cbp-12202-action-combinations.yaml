@@ -13,7 +13,7 @@ jobs:
       - name: Name Only
         uses: cloudbees-io/checkout@v1
 
-      - id: ID Only
+      - id: id-only-checkout
         uses: cloudbees-io/checkout@v1
 
       - uses: cloudbees-io/checkout@v1
