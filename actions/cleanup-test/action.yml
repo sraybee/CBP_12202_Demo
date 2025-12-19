@@ -13,8 +13,10 @@ runs:
         echo "Stopping test services..."
         echo "✓ Test database stopped"
 
-    - name: Checkout Step ABCD
+    - name: Checkout Step ABCD With Name
       uses: cloudbees-io/checkout@v1
+
+    - uses: cloudbees-io/checkout@v1
 
     - name: Cleanup Test Data
       uses: docker://alpine:3.20
