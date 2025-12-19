@@ -1,0 +1,73 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: action
+name: deploy-application
+description: "Deploy application to target environment"
+
+inputs:
+  environment:
+    description: "Target environment (staging/production)"
+    required: true
+  namespace:
+    description: "Kubernetes namespace"
+    required: true
+  version:
+    description: "Application version to deploy"
+    required: true
+  artifact:
+    description: "Artifact name to deploy"
+    required: true
+  replicas:
+    description: "Number of replicas"
+    required: false
+    default: "1"
+  log-level:
+    description: "Logging level"
+    required: false
+    default: "info"
+
+runs:
+  using: composite
+  steps:
+    - name: Validate Inputs
+      uses: docker://alpine:3.21
+      shell: sh
+      run: |
+        echo "Validating deployment inputs..."
+        echo "Environment: ${{ inputs.environment }}"
+        echo "Namespace: ${{ inputs.namespace }}"
+        echo "Version: ${{ inputs.version }}"
+        echo "Artifact: ${{ inputs.artifact }}"
+        echo "Replicas: ${{ inputs.replicas }}"
+
+    - name: Create Namespace
+      uses: docker://alpine:3.21
+      shell: sh
+      run: |
+        echo "Creating namespace: ${{ inputs.namespace }}..."
+        echo "✓ Namespace created"
+
+    - name: Deploy Application
+      uses: docker://alpine:3.21
+      shell: sh
+      run: |
+        echo "Deploying ${{ inputs.artifact }} to ${{ inputs.environment }}..."
+        echo "Replicas: ${{ inputs.replicas }}"
+        echo "Log Level: ${{ inputs.log-level }}"
+        sleep 2
+        echo "✓ Application deployed successfully"
+
+    - name: Wait for Rollout
+      uses: docker://alpine:3.21
+      shell: sh
+      run: |
+        echo "Waiting for deployment to complete..."
+        sleep 3
+        echo "✓ All pods are ready"
+
+    - name: Verify Deployment
+      uses: docker://alpine:3.21
+      shell: sh
+      run: |
+        echo "Verifying deployment health..."
+        echo "✓ Health check passed"
+        echo "Deployment successful in namespace: ${{ inputs.namespace }}"

@@ -1,0 +1,41 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: action
+name: cleanup-staging-environment
+description: "Cleanup staging environment resources"
+
+inputs:
+  namespace:
+    description: "Namespace to cleanup"
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Uninstall Application
+      uses: docker://alpine:3.21
+      shell: sh
+      run: |
+        echo "Uninstalling application from namespace: ${{ inputs.namespace }}..."
+        echo "✓ Application uninstalled"
+
+    - name: Delete Resources
+      uses: docker://alpine:3.21
+      shell: sh
+      run: |
+        echo "Deleting resources in namespace: ${{ inputs.namespace }}..."
+        echo "✓ Deployments deleted"
+
+    - name: Delete Namespace
+      uses: docker://alpine:3.21
+      shell: sh
+      run: |
+        echo "Deleting namespace: ${{ inputs.namespace }}..."
+        sleep 1
+        echo "✓ Namespace deleted"
+
+    - name: Verify Cleanup
+      uses: docker://alpine:3.21
+      shell: sh
+      run: |
+        echo "Verifying cleanup completion..."
+        echo "✓ All resources cleaned up successfully"

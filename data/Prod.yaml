@@ -1,0 +1,80 @@
+OLD - Prod
+
+{
+    "run": {
+        "id": "89ffc45a-8cb2-4d85-a220-9ea4f287f969",
+        "runNumber": "1",
+        "status": "SUCCEEDED",
+        "trigger": {
+            "type": "USER",
+            "triggeredBy": {
+                "id": "e7c181c2-200a-11f0-901c-42010a83ae38",
+                "givenname": "",
+                "familyname": "",
+                "displayname": "Subhradeep Ray",
+                "type": "USER_TYPE_UNDEFINED",
+                "status": "USER_STATUS_UNDEFINED",
+                "loginIds": [],
+                "preferences": {},
+                "audit": null,
+                "logins": [],
+                "associatedEmails": [],
+                "email": "",
+                "timezone": "",
+                "mfaEnabled": false,
+                "createdat": null,
+                "updatedat": null,
+                "lastlogindate": null
+            },
+            "cron": ""
+        },
+        "commit": {
+            "id": "dd7828eb5eb5c475833b49caf3fdb98a5372c23e",
+            "message": "https://api.github.com/repos/sraybee/CBP_12202_Testing/commits/dd7828eb5eb5c475833b49caf3fdb98a5372c23e/comments",
+            "time": null,
+            "authors": [],
+            "url": "https://github.com/sraybee/CBP_12202_Testing/commit/dd7828eb5eb5c475833b49caf3fdb98a5372c23e"
+        },
+        "startedAt": "2025-12-01T14:25:07Z",
+        "updatedAt": "2025-12-01T14:25:21Z",
+        "runAttempt": "1",
+        "version": {
+            "resourceId": "28265c01-bd1f-4508-a197-e0c8dfbf7066",
+            "major": 0,
+            "minor": 0,
+            "patch": 1
+        },
+        "workflowTrigger": {
+            "triggerId": "DISPATCH|f425c63f-a2d1-4fb6-a905-afae6274c22f",
+            "triggerType": "WORKFLOW_DISPATCH",
+            "triggerAction": ""
+        },
+        "inputs": [],
+        "source": "CloudBees",
+        "externalRunId": "",
+        "externalRunUrl": "",
+        "applicationRelease": null,
+        "externalWorkflowRunLogUrl": "",
+        "externalRunStatus": "UNKNOWN"
+    },
+    "jobs": [
+        {
+            "id": "build",
+            "uuid": "",
+            "name": "build",
+            "status": "SUCCEEDED",
+            "services": [],
+            "steps": [
+                {
+                    "step": {
+                        "id": "prepare-workspace",
+                        "name": "Set up workspace",
+                        "status": "SUCCEEDED",
+                        "startedAt": "2025-12-01T14:25:07Z",
+                        "updatedAt": "2025-12-01T14:25:14Z"
+                    }
+                }
+            ]
+        }
+    ]
+}

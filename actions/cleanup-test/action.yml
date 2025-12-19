@@ -1,0 +1,31 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: action
+name: cleanup-test-environment
+description: "Cleanup test environment resources"
+
+runs:
+  using: composite
+  steps:
+    - name: Stop Test Services
+      uses: docker://alpine:3.20
+      shell: sh
+      run: |
+        echo "Stopping test services..."
+        echo "✓ Test database stopped"
+
+    - name: Checkout Step ABCD
+      uses: cloudbees-io/checkout@v1
+
+    - name: Cleanup Test Data
+      uses: docker://alpine:3.20
+      shell: sh
+      run: |
+        echo "Cleaning up test data..."
+        echo "✓ Test data purged"
+
+    - name: Remove Test Resources
+      uses: docker://alpine:3.20
+      shell: sh
+      run: |
+        echo "Removing test resources..."
+        echo "✓ Test environment cleanup complete"
