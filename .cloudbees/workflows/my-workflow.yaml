@@ -1,13 +1,27 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: My workflow
+name: my-workflow-cbp-12202
 on:
   workflow_dispatch:
 jobs:
-  build:
+  checkout-combos:
     steps:
-      - name: Say hello
-        uses: docker://golang:1.20.3-alpine3.17
+      - name: Both ID and Name
+        id: checkout-both
+        uses: cloudbees-io/checkout@v1
+
+      - name: Name Only
+        uses: cloudbees-io/checkout@v1
+
+      - id: id-only-checkout
+        uses: cloudbees-io/checkout@v1
+
+      - uses: cloudbees-io/checkout@v1
+
+      - uses: ./actions/cleanup-test
+
+      - name: Hello World Fromm Alpine
+        uses: docker://alpine:3.21
         shell: sh
         run: |
-          echo "hello world"
+          echo "Hello World"
