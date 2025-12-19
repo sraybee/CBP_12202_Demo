@@ -1,4 +1,4 @@
-# CBP-12202 Combined Workflow — Use Cases
+# CBP-12202 Combined Workflow StepName_Action — Use Cases
 
 **Overview:**
 - The primary workflow file added is: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L1)
