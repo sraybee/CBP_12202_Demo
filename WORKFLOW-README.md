@@ -19,6 +19,28 @@ Note: steps that use container images (for example `uses: docker://alpine:3.21`)
    - Step name shown: Cleanup Staging
    - Workflow location: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L54](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L54)
 
-That's it — minimal demo sheet focusing only on local workflow steps.
+This file lists four demo use cases and the corresponding local action steps in the workflow. (Container-run steps like `uses: docker://alpine:...` are omitted.)
+
+1) Deploy to staging
+    - Step shown: Deploy to Staging
+    - Action used: `./actions/deploy-app`
+    - Workflow location: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L51](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L51)
+
+2) Deploy to production
+    - Step shown: Deploy to Production
+    - Action used: `./actions/deploy-app`
+    - Workflow location: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L57](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L57)
+
+3) Cleanup test environment
+    - Step shown: Cleanup Test Environment
+    - Action used: `./actions/cleanup-test`
+    - Workflow location: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L39](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L39)
+
+4) Cleanup staging
+    - Step shown: Cleanup Staging
+    - Action used: `./actions/cleanup-staging`
+    - Workflow location: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L54](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L54)
+
+That's all — four local-action examples for your demo.
 
 
