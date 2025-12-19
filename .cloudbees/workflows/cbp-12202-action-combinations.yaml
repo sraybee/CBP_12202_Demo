@@ -1,6 +1,6 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: cbp-12202-checkout-combinations
+name: cbp-12202-action-combinations
 on:
   workflow_dispatch:
 jobs:
@@ -10,15 +10,17 @@ jobs:
         id: checkout-both
         uses: cloudbees-io/checkout@v1
 
-      - uses: cloudbees-io/checkout@v1
-
       - name: Name Only
         uses: cloudbees-io/checkout@v1
 
-      - id: checkout-only-id
+      - id: ID Only
         uses: cloudbees-io/checkout@v1
 
-      - name: Hello World (sh)
+      - uses: cloudbees-io/checkout@v1
+
+      - uses: ./actions/cleanup-test
+
+      - name: Hello World Fromm Alpine
         uses: docker://alpine:3.21
         shell: sh
         run: |
