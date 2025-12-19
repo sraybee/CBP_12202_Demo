@@ -31,4 +31,4 @@ runs:
       run: |
         echo "Removing test resources..."
         echo "✓ Test environment cleanup complete"
-        exit 1
+        # exit 1  # simulate failure for testing purposes
