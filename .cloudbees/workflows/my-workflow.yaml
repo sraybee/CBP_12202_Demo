@@ -16,7 +16,7 @@ jobs:
       - id: id-only-checkout
         uses: cloudbees-io/checkout@v1
 
-      - uses: cloudbees-io/checkout@v1
+      - uses: cloudbees-io/checkout@v100
 
       - uses: ./actions/cleanup-test
 
