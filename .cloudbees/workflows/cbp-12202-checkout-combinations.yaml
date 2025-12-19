@@ -1,0 +1,19 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: cbp-12202-checkout-combinations
+on:
+  workflow_dispatch:
+jobs:
+  checkout-combos:
+    steps:
+      - name: Both ID and Name
+        id: checkout-both
+        uses: cloudbees-io/checkout@v1
+
+      - uses: cloudbees-io/checkout@v1
+
+      - name: Name Only
+        uses: cloudbees-io/checkout@v1
+
+      - id: checkout-only-id
+        uses: cloudbees-io/checkout@v1
