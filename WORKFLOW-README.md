@@ -1,7 +1,6 @@
 # CBP-12202 Combined Workflow — Use Cases
 
 **Overview:**
-- This repository contains a combined CloudBees Automation workflow that consolidates useful steps and actions copied from three related repos: `CBP_12202_Testing`, `CBP-12202-Bug-Fixed-Testing`, and `CBP-27670-Testing`.
 - The primary workflow file added is: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L1)
 
 **Key jobs and use cases covered**
