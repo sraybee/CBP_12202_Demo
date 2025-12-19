@@ -1,23 +1,24 @@
 # Step Naming Rules & Examples
+## Use cases and concrete example step names from the local workflow
 
-## Use cases and concrete example step names from the local workflow:
+Note: steps that use container images (for example `uses: docker://alpine:3.21`) are inline container-run steps for demos and are not local reusable actions.
 
-1) Build (both `id`+`name`)
-   - Step name shown: Generate Version
-   - Workflow location: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L13](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L13)
+1) Build (both `id` + `name`)
+   - Step name shown: Build Artifact (id: `build-artifact`)
+   - Workflow location: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L17](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L17)
 
 2) Integration test (`name` only)
    - Step name shown: Run Integration Tests
    - Workflow location: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L37](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L37)
 
-3) Deploy to staging (`id` + `name` for namespace step; deploy step uses local action)
-   - Step name shown: Create Namespace (id: `namespace`) and Deploy to Staging
-   - Workflow location: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L51](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L51)
+3) Deploy to production (`name` shown, uses local deploy action)
+   - Step name shown: Deploy to Production
+   - Workflow location: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L57](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L57)
 
-4) Fallback / unnamed action (neither `id` nor `name` on step)
-   - Step name shown: fallback action label (engine fallback) — used to demonstrate UI fallback
-   - Workflow location (demo): use `Cleanup Test Environment` which references local action at [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L39](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L39)
+4) Cleanup staging (local action with `name`)
+   - Step name shown: Cleanup Staging
+   - Workflow location: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L54](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L54)
 
-That's it — this file is intentionally minimal for your demo.
+That's it — minimal demo sheet focusing only on local workflow steps.
 
 
