@@ -20,7 +20,7 @@ jobs:
 
       - uses: ./actions/cleanup-test
 
-      - name: Hello World Fromm Alpine
+      - name: Hello World From Alpine
         uses: docker://alpine:3.21
         shell: sh
         run: |
