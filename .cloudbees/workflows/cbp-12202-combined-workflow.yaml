@@ -40,6 +40,11 @@ jobs:
         run: |
           echo "Running integration tests against ${{ needs.build.outputs.artifact-name }}"
 
+      - id: example-only-id
+        uses: ./actions/cleanup-test
+
+      - uses: ./actions/my-fallback-action
+
       - name: Cleanup Test Environment
         uses: ./actions/cleanup-test
         if: always()

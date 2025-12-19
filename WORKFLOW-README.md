@@ -1,21 +1,26 @@
-# Step Naming Rules & Examples
+# Step Naming Rules & Examples (CBP_12202_Demo only)
+
+This minimal sheet shows four naming combinations using steps from `.cloudbees/workflows/cbp-12202-combined-workflow.yaml`.
 
 1) StepName and ID Both Mentioned
-    - Job: `build`
-    - Step: `Get source code` (id: `checkout`) — uses `cloudbees-io/checkout@v1`
-    - Location: [dsl-engine-cli/.cloudbees/workflows/workflow.yaml#L13](dsl-engine-cli/.cloudbees/workflows/workflow.yaml#L13)
+   - Job: `deploy-staging`
+   - Step: `Create Namespace` (id: `namespace`) — has both `id` and `name`; produces an output used by later steps
+   - Reference: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L45)
 
 2) StepName and ID None Mentioned
-    - Job: `cbp-12202-test-job`
-    - Step: anonymous uses `./.cloudbees/my-fallback-action` (no `id`, no `name`) — demonstrates UI fallback
-    - Location: [CBP-12202-Bug-Fixed-Testing/.cloudbees/workflows/cbp-12202-bug-fixed-test.yaml#L15](CBP-12202-Bug-Fixed-Testing/.cloudbees/workflows/cbp-12202-bug-fixed-test.yaml#L15)
+   - Job: `integration-test`
+   - Step: anonymous `uses: ./actions/my-fallback-action` (no step `id`, no step `name`) — demonstrates UI fallback labeling
+   - Reference: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L41)
 
 3) Only StepName Mentioned
-    - Job: `deploy-production`
-    - Step: `Deploy to Production` (uses local action `./actions/deploy-app`, no `id` on the step)
-    - Location: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L57](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L57)
+   - Job: `deploy-production`
+   - Step: `Deploy to Production` — display `name` present; step invokes local action `./actions/deploy-app` (no step `id`)
+   - Reference: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L57)
+   - Action: [actions/deploy-app/action.yml](actions/deploy-app/action.yml#L1)
 
 4) Only ID Mentioned
-    - Job: `job1` (testdata complex workflow)
-    - Step: id `local-action` (uses local composite action, no `name` provided)
-    - Location: [dsl-engine-cli/internal/scm/git/testdata/repos/github.com-443/cloudbees-io/local-test/refs/heads/main/no-sha/.cloudbees/workflows/workflow.yaml#L15](dsl-engine-cli/internal/scm/git/testdata/repos/github.com-443/cloudbees-io/local-test/refs/heads/main/no-sha/.cloudbees/workflows/workflow.yaml#L15)
+   - Job: `integration-test`
+   - Step: id `example-only-id` (no `name`) — demonstrates a step referenced programmatically by `id`
+   - Reference: [.cloudbees/workflows/cbp-12202-combined-workflow.yaml](.cloudbees/workflows/cbp-12202-combined-workflow.yaml#L39)
+
+That's it — focused, CBP_12202_Demo–only examples for your demo.
